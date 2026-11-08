@@ -6,6 +6,7 @@
 <meta name="description" content="A personal essay on what comes after ERP: a System of Intent for the manufacturing supply chain.">
 <style>html,body{margin:0}img{max-width:100%}</style>
 <title>The System of Intent</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232B43D6'/%3E%3Cg stroke='%23fff' stroke-width='5' stroke-linecap='round'%3E%3Cline x1='19' y1='14' x2='19' y2='50' opacity='.5'/%3E%3Cline x1='32' y1='14' x2='32' y2='50' opacity='.5'/%3E%3Cline x1='45' y1='14' x2='45' y2='50' opacity='.5'/%3E%3Cline x1='14' y1='19' x2='50' y2='19' opacity='.95'/%3E%3Cline x1='14' y1='32' x2='50' y2='32' opacity='.95'/%3E%3Cline x1='14' y1='45' x2='50' y2='45' opacity='.95'/%3E%3C/g%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,6 +71,7 @@
     padding-right:max(24px,env(safe-area-inset-right,0px))}
   .col{max-width:43rem;margin-inline:auto}
   .col-wide{max-width:60rem;margin-inline:auto}
+  .wrap.bleed{max-width:none}
   section{padding-block:clamp(3rem,7vw,5.5rem)}
   .tint{background:var(--surface-2)}
   .inkband{background:#0D1015;color:#E9EDF3;
@@ -114,23 +116,33 @@
 
   /* ---- masthead ---- */
   .masthead{padding-top:clamp(3.5rem,9vw,6rem);padding-bottom:0}
+  .brand{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.9rem}
+  .brand .btile{width:34px;height:34px;flex:none;display:block}
+  .brand .bword{font-family:var(--font-display);font-weight:800;
+    font-size:1.3rem;letter-spacing:-.02em;color:var(--ink)}
   .kicker-row{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:baseline;
     border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:2.4rem}
   h1.title{font-family:var(--font-display);font-weight:900;
-    font-size:clamp(2.9rem,10vw,6.4rem);letter-spacing:-.03em;line-height:.92;margin:0}
+    font-size:5.3vw;white-space:nowrap;letter-spacing:-.03em;line-height:.95;margin:0}
   h1.title .of{color:var(--faint);font-weight:700}
+  .masthead > .wrap:first-of-type{max-width:none}
+  @media(max-width:860px){
+    h1.title{white-space:normal;font-size:clamp(2.6rem,11vw,4rem)}
+    .masthead > .wrap:first-of-type{max-width:1120px}
+  }
   .deck{font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.42;color:var(--ink-soft);
-    max-width:34ch;margin:1.6rem 0 0;font-weight:400}
+    max-width:none;margin:1.6rem 0 0;font-weight:400}
   .byline{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:2.2rem;
     font-family:var(--font-mono);font-size:.82rem;color:var(--faint);
     letter-spacing:.02em}
   .byline b{color:var(--ink);font-weight:600}
   .deck-note{font-family:var(--font-mono);font-size:.78rem;line-height:1.55;
-    color:var(--faint);letter-spacing:.01em;max-width:40ch;margin:1rem 0 0}
+    color:var(--faint);letter-spacing:.01em;max-width:none;margin:1rem 0 0}
   .deck-note b{color:var(--ink-soft);font-weight:600}
   .deck-note i{font-style:italic}
   .starref{color:var(--accent-ink);font-weight:600;font-size:.7em;
-    vertical-align:super;line-height:0;padding-left:.08em}
+    vertical-align:super;line-height:0;padding-left:.08em;text-decoration:none}
+  a.starref:hover{text-decoration:underline}
 
   /* ---- hero weave figure ---- */
   figure{margin:0}
@@ -374,12 +386,16 @@
 <!-- ======================= MASTHEAD ======================= -->
 <header class="band masthead">
   <div class="wrap">
+    <div class="brand" aria-label="Karpa">
+      <svg class="btile" viewBox="0 0 64 64" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#2B43D6"/><g stroke="#fff" stroke-width="5" stroke-linecap="round"><line x1="19" y1="14" x2="19" y2="50" opacity=".5"/><line x1="32" y1="14" x2="32" y2="50" opacity=".5"/><line x1="45" y1="14" x2="45" y2="50" opacity=".5"/><line x1="14" y1="19" x2="50" y2="19" opacity=".95"/><line x1="14" y1="32" x2="50" y2="32" opacity=".95"/><line x1="14" y1="45" x2="50" y2="45" opacity=".95"/></g></svg>
+      <span class="bword">Karpa</span>
+    </div>
     <div class="kicker-row">
       <span class="eyebrow">A personal essay</span>
       <span class="eyebrow muted">Supply Chain &amp; AI</span>
       <span class="eyebrow muted">November 2026</span>
     </div>
-    <h1 class="title">The System<br><span class="of">of</span> Intent</h1>
+    <h1 class="title">The System <span class="of">of</span> Intent</h1>
     <p class="deck">The enterprise has run on a system of record for fifty years. I think its successor won't record what happened — it will understand what everyone wants, and act on it. I call that surface Karpa<a href="#karpa-name" class="starref" aria-label="Meaning of the name Karpa">*</a>. This is my attempt to describe it before it exists.</p>
     <p class="deck-note"><span class="starref" aria-hidden="true">*</span> <b>Karpa</b> — from the Sanskrit <i>karpāsa</i>, the woven cotton cloth that is the distant root of the English word <i>canvas</i> (karpāsa &rarr; Greek <i>kárpasos</i> &rarr; Latin <i>carbasus</i> &rarr; canvas).</p>
     <div class="byline">
@@ -458,12 +474,12 @@
 <section class="band tint">
   <div class="wrap col">
     <p class="sec-no">I — The provocation</p>
-    <h2 class="section-title">ERP is a fossil</h2>
+    <h2 class="section-title">ERP is a product of its time</h2>
     <p class="lead" style="margin:1.1rem 0 1.8rem">Every sacred feature of the enterprise operating system was an engineering compromise forced by the constraints of its birth. We have mistaken those compromises for the nature of business itself.</p>
     <p class="dropcap">Consider what a computer could not do in 1985, and watch each limitation harden into something we now defend as a principle. The relational database was a triumph of scarcity management. Disk was expensive, so you stored every fact exactly once and forbade redundancy. Memory was small, so you processed in batches overnight. Machines could not read a sentence, so a human had to pre-digest every intention into codes, fields, and forms before the system could touch it. Integration between systems was costly and brittle, so vendors bundled everything into a single monolith with one shared schema — and called the compartments inside it <em class="term">modules</em>. And software could not exercise judgment, so it was confined to recording and reporting while humans decided. We built an entire profession to feed the record and another to read it.</p>
 
     <ul class="fossils">
-      <li><div><b>Storage was expensive</b>Store each fact once; forbid redundancy. The normalized schema was born — and with it, the requirement to decide the shape of the world before you capture anything in it.</div></li>
+      <li><div><b>Storage was expensive</b>Store each fact once; forbid redundancy. The normalized schema was born — and with it, the requirement to decide the shape of the world before you capture anything in it. The rule could not even hold on its own terms: reading those facts back was slow, so redundancy crept straight back in — indexes, cached and materialized views, summary tables, a whole parallel data warehouse — duplicating the very facts the schema was built to keep single.</div></li>
       <li><div><b>Machines could not read language</b>Humans pre-digest meaning into codes and fields. The form, the dropdown, and the transaction became the only doors into the system.</div></li>
       <li><div><b>Compute was scarce and serial</b>You could not re-optimize continuously, so you batched. Overnight MRP, weekly S&amp;OP, the monthly close — cadence dictated by the machine, not the business.</div></li>
       <li><div><b>Integration was costly and brittle</b>Bundle everything behind one schema. The ERP suite, and the functional silos inside it, were a way to avoid the cost of systems talking to each other.</div></li>
@@ -519,43 +535,44 @@
 
     <div class="figpanel" style="margin:2rem 0">
       <figure>
-        <svg class="diagram" viewBox="0 0 920 210" role="img"
+        <svg class="diagram" viewBox="0 0 930 232" role="img"
           aria-label="Three eras. System of Record answers what happened. System of Engagement answers how we interact. System of Intent answers what everyone wants and what should happen next, and it demotes the record to one of its rendered views.">
-          <!-- three stacked eras -->
-          <g>
-            <rect x="20" y="30" width="270" height="64" rx="9" fill="var(--surface-2)" stroke="var(--line)"/>
-            <text x="38" y="56" class="box-t" font-size="13">System of Record</text>
-            <text x="38" y="76" class="box-s">ERP · "what happened?" · 1975–</text>
-
-            <rect x="20" y="108" width="270" height="64" rx="9" fill="var(--surface-2)" stroke="var(--line)"/>
-            <text x="38" y="134" class="box-t" font-size="13">System of Engagement</text>
-            <text x="38" y="154" class="box-s">CRM, portals · "how we interact?" · 2005–</text>
-          </g>
-          <!-- arrow to intent -->
-          <path d="M300,100 L352,100" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#ar)"/>
           <defs>
             <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
               <polygon points="0,0 9,4.5 0,9" fill="var(--accent)"/>
             </marker>
-          </defs>
-          <!-- system of intent -->
-          <rect x="360" y="28" width="300" height="150" rx="11" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.6"/>
-          <text x="380" y="58" class="box-t" font-size="15" fill="var(--accent-ink)" font-weight="700">System of Intent</text>
-          <text x="380" y="78" class="box-s" fill="var(--accent-ink)">"what does everyone want — and</text>
-          <text x="380" y="92" class="box-s" fill="var(--accent-ink)">what should happen next?" · 2026–</text>
-          <text x="380" y="118" class="box-s">holds: intent · constraints ·</text>
-          <text x="380" y="132" class="box-s">commitments · signals</text>
-          <!-- record demoted to a view -->
-          <path d="M660,120 L712,120" fill="none" stroke="var(--faint)" stroke-width="1.6" marker-end="url(#ar2)"/>
-          <defs>
             <marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
               <polygon points="0,0 9,4.5 0,9" fill="var(--faint)"/>
             </marker>
           </defs>
-          <rect x="716" y="92" width="184" height="58" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 4"/>
-          <text x="732" y="116" class="box-t" font-size="12">the record</text>
-          <text x="732" y="134" class="box-s">now a rendered view, on demand</text>
-          <text x="808" y="172" class="edge" text-anchor="middle">renders</text>
+          <!-- three stacked eras -->
+          <rect x="20" y="26" width="295" height="76" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+          <text x="40" y="58" style="font-size:16px;font-weight:700;fill:var(--ink)">System of Record</text>
+          <text x="40" y="84" style="font-size:13px;font-weight:500;fill:var(--ink-soft)">ERP · “what happened?” · 1975–</text>
+
+          <rect x="20" y="116" width="295" height="76" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+          <text x="40" y="148" style="font-size:16px;font-weight:700;fill:var(--ink)">System of Engagement</text>
+          <text x="40" y="174" style="font-size:13px;font-weight:500;fill:var(--ink-soft)">CRM · “how we interact?” · 2005–</text>
+
+          <!-- arrow to intent -->
+          <path d="M315,109 L356,109" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#ar)"/>
+
+          <!-- system of intent -->
+          <rect x="360" y="22" width="322" height="186" rx="13" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.8"/>
+          <text x="384" y="58" style="font-size:19px;font-weight:700;fill:var(--accent-ink)">System of Intent</text>
+          <text x="384" y="86" style="font-size:14px;font-weight:500;fill:var(--accent-ink)">“what does everyone want —</text>
+          <text x="384" y="106" style="font-size:14px;font-weight:500;fill:var(--accent-ink)">and what happens next?” · 2026–</text>
+          <line x1="384" y1="124" x2="658" y2="124" stroke="var(--accent)" stroke-width="1" opacity=".3"/>
+          <text x="384" y="150" style="font-size:14px;font-weight:500;fill:var(--ink-soft)">holds: intent · constraints ·</text>
+          <text x="384" y="170" style="font-size:14px;font-weight:500;fill:var(--ink-soft)">commitments · signals</text>
+
+          <!-- record demoted to a view -->
+          <text x="718" y="118" style="font-size:11px;font-weight:500;fill:var(--faint)" text-anchor="middle">renders</text>
+          <path d="M686,131 L750,131" fill="none" stroke="var(--faint)" stroke-width="1.8" marker-end="url(#ar2)"/>
+          <rect x="752" y="100" width="156" height="72" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <text x="770" y="128" style="font-size:14px;font-weight:700;fill:var(--ink)">the record</text>
+          <text x="770" y="148" style="font-size:12px;font-weight:500;fill:var(--ink-soft)">now a rendered</text>
+          <text x="770" y="164" style="font-size:12px;font-weight:500;fill:var(--ink-soft)">view, on demand</text>
         </svg>
         <figcaption>Figure 2 — The record is not abolished; it is demoted. A System of Intent holds intentions, constraints, commitments, and signals, and renders the ledger — the PO, the plan, the journal entry — as one of many views, on demand.</figcaption>
       </figure>
@@ -628,7 +645,7 @@
   <div class="wrap col-wide">
     <div class="figpanel" style="margin:2rem 0">
       <figure>
-        <svg class="diagram" viewBox="0 0 980 440" role="img"
+        <svg class="diagram" viewBox="0 0 1000 400" role="img"
           aria-label="A horizontal pipeline. People express intent in any modality onto a capture Surface; it is stored in unstructured Memory; an Interpretation layer extracts intent, constraints, commitments and signals; an Orchestration mesh of agents plans and acts; a Projection layer renders views such as purchase orders, plans, journal entries and compliance records. An Ask-anything interface reads from Memory and Interpretation. A Trust layer of provenance, decision rights and audit spans the whole pipeline, and directions flow back out to people.">
           <defs>
             <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><polygon points="0,0 9,4.5 0,9" fill="var(--accent)"/></marker>
@@ -636,72 +653,78 @@
           </defs>
 
           <!-- inputs -->
-          <text x="20" y="40" class="box-s" fill="var(--accent-ink)">ANY PARTICIPANT · ANY MODALITY</text>
-          <g class="box-s" fill="var(--faint)">
-            <text x="20" y="64">customer email</text>
-            <text x="20" y="82">plant voice note</text>
-            <text x="20" y="100">supplier PDF</text>
-            <text x="20" y="118">photo · signal · chat</text>
+          <text x="16" y="40" style="font-size:10.5px;font-weight:600;fill:var(--accent-ink);letter-spacing:.03em">ANY PARTICIPANT · ANY MODALITY</text>
+          <g style="font-size:11px;font-weight:500;fill:var(--ink-soft)">
+            <text x="16" y="66">customer email</text>
+            <text x="16" y="84">plant voice note</text>
+            <text x="16" y="102">supplier PDF</text>
+            <text x="16" y="120">photo, signal, chat</text>
           </g>
 
           <!-- layer boxes (pipeline) -->
           <!-- 1 Surface -->
-          <rect x="175" y="48" width="118" height="82" rx="9" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.5"/>
-          <text x="234" y="80" text-anchor="middle" class="box-t" fill="var(--accent-ink)">Surface</text>
-          <text x="234" y="98" text-anchor="middle" class="box-s">capture, as-is</text>
-          <text x="234" y="113" text-anchor="middle" class="box-s">no forms</text>
+          <rect x="172" y="46" width="136" height="104" rx="10" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.6"/>
+          <text x="240" y="76" text-anchor="middle" style="font-size:13.5px;font-weight:700;fill:var(--accent-ink)">Surface</text>
+          <text x="240" y="98" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--accent-ink)">capture, as-is</text>
+          <text x="240" y="114" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--accent-ink)">no forms</text>
           <!-- 2 Memory -->
-          <rect x="333" y="48" width="118" height="82" rx="9" fill="var(--surface-2)" stroke="var(--line)"/>
-          <text x="392" y="80" text-anchor="middle" class="box-t">Memory</text>
-          <text x="392" y="98" text-anchor="middle" class="box-s">unstructured,</text>
-          <text x="392" y="113" text-anchor="middle" class="box-s">embedded, versioned</text>
+          <rect x="338" y="46" width="136" height="104" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+          <text x="406" y="76" text-anchor="middle" style="font-size:13.5px;font-weight:700;fill:var(--ink)">Memory</text>
+          <text x="406" y="98" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">unstructured,</text>
+          <text x="406" y="114" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">embedded,</text>
+          <text x="406" y="130" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">versioned</text>
           <!-- 3 Interpretation -->
-          <rect x="491" y="48" width="118" height="82" rx="9" fill="var(--surface-2)" stroke="var(--line)"/>
-          <text x="550" y="76" text-anchor="middle" class="box-t">Interpretation</text>
-          <text x="550" y="94" text-anchor="middle" class="box-s">intent · constraints</text>
-          <text x="550" y="109" text-anchor="middle" class="box-s">commitments · signals</text>
+          <rect x="504" y="46" width="136" height="104" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+          <text x="572" y="74" text-anchor="middle" style="font-size:13.5px;font-weight:700;fill:var(--ink)">Interpretation</text>
+          <text x="572" y="94" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">intent,</text>
+          <text x="572" y="110" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">constraints,</text>
+          <text x="572" y="126" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">commitments,</text>
+          <text x="572" y="142" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">signals</text>
           <!-- 4 Orchestration -->
-          <rect x="649" y="48" width="118" height="82" rx="9" fill="var(--surface-2)" stroke="var(--line)"/>
-          <text x="708" y="76" text-anchor="middle" class="box-t">Orchestration</text>
-          <text x="708" y="94" text-anchor="middle" class="box-s">agent mesh:</text>
-          <text x="708" y="109" text-anchor="middle" class="box-s">plan · negotiate · act</text>
+          <rect x="670" y="46" width="136" height="104" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+          <text x="738" y="74" text-anchor="middle" style="font-size:13.5px;font-weight:700;fill:var(--ink)">Orchestration</text>
+          <text x="738" y="94" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">agent mesh:</text>
+          <text x="738" y="110" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">plan, negotiate,</text>
+          <text x="738" y="126" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">act</text>
           <!-- 5 Projection -->
-          <rect x="807" y="48" width="150" height="82" rx="9" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.5"/>
-          <text x="882" y="76" text-anchor="middle" class="box-t" fill="var(--accent-ink)">Projection</text>
-          <text x="882" y="94" text-anchor="middle" class="box-s">views on demand:</text>
-          <text x="882" y="109" text-anchor="middle" class="box-s">PO · plan · GL · filing</text>
+          <rect x="836" y="46" width="136" height="104" rx="10" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.6"/>
+          <text x="904" y="74" text-anchor="middle" style="font-size:13.5px;font-weight:700;fill:var(--accent-ink)">Projection</text>
+          <text x="904" y="94" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--accent-ink)">views on demand:</text>
+          <text x="904" y="110" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--accent-ink)">PO, plan, GL,</text>
+          <text x="904" y="126" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--accent-ink)">filing</text>
 
           <!-- flow arrows -->
           <g>
-            <path d="M150,88 L173,88" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#a)"/>
-            <path d="M293,89 L331,89" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#a)"/>
-            <path d="M451,89 L489,89" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#a)"/>
-            <path d="M609,89 L647,89" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#a)"/>
-            <path d="M767,89 L805,89" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#a)"/>
+            <path d="M150,98 L170,98" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#a)"/>
+            <path d="M308,98 L336,98" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#a)"/>
+            <path d="M474,98 L502,98" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#a)"/>
+            <path d="M640,98 L668,98" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#a)"/>
+            <path d="M806,98 L834,98" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#a)"/>
           </g>
 
           <!-- Ask-anything -->
-          <rect x="333" y="188" width="276" height="54" rx="9" fill="var(--surface)" stroke="var(--line-strong)"/>
-          <text x="471" y="212" text-anchor="middle" class="box-t">Ask-anything</text>
-          <text x="471" y="229" text-anchor="middle" class="box-s">"why did the order slip?"  ·  "what if API supply drops 30%?"</text>
-          <path d="M392,131 L392,186" fill="none" stroke="var(--faint)" stroke-width="1.5" marker-end="url(#ag)"/>
-          <path d="M550,131 L550,186" fill="none" stroke="var(--faint)" stroke-width="1.5" marker-end="url(#ag)"/>
+          <rect x="279" y="194" width="420" height="66" rx="10" fill="var(--surface)" stroke="var(--line-strong)"/>
+          <text x="489" y="220" text-anchor="middle" style="font-size:13.5px;font-weight:700;fill:var(--ink)">Ask-anything</text>
+          <text x="489" y="240" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">“why did the order slip?”</text>
+          <text x="489" y="255" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">“what if API supply drops 30%?”</text>
+          <path d="M406,150 L406,192" fill="none" stroke="var(--faint)" stroke-width="1.6" marker-end="url(#ag)"/>
+          <path d="M572,150 L572,192" fill="none" stroke="var(--faint)" stroke-width="1.6" marker-end="url(#ag)"/>
 
           <!-- directions back out -->
-          <path d="M708,131 C708,300 150,300 150,112" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
-          <text x="430" y="296" text-anchor="middle" class="edge" fill="var(--accent-ink)">directions, nudges &amp; actions flow back to people — inside and outside the company</text>
+          <path d="M738,150 C738,318 176,318 176,152" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+          <text x="440" y="314" text-anchor="middle" style="font-size:10.5px;font-weight:500;fill:var(--accent-ink)">directions, nudges &amp; actions flow back to people — inside and outside the company</text>
 
           <!-- Trust layer spanning -->
-          <rect x="175" y="360" width="782" height="54" rx="9" fill="none" stroke="var(--ember)" stroke-width="1.5" stroke-dasharray="2 3"/>
-          <text x="566" y="384" text-anchor="middle" class="box-t" fill="var(--ember)">Trust layer</text>
-          <text x="566" y="401" text-anchor="middle" class="box-s">provenance · decision rights · confidence thresholds · human-in-the-loop · full audit</text>
-          <g stroke="var(--ember)" stroke-width="1" stroke-dasharray="2 3" opacity=".6">
-            <line x1="234" y1="130" x2="234" y2="360"/>
-            <line x1="392" y1="242" x2="392" y2="360"/>
-            <line x1="550" y1="242" x2="550" y2="360"/>
-            <line x1="708" y1="300" x2="708" y2="360"/>
-            <line x1="882" y1="130" x2="882" y2="360"/>
+          <g stroke="var(--ember)" stroke-width="1" stroke-dasharray="2 3" opacity=".5">
+            <line x1="240" y1="150" x2="240" y2="334"/>
+            <line x1="406" y1="260" x2="406" y2="334"/>
+            <line x1="572" y1="260" x2="572" y2="334"/>
+            <line x1="738" y1="150" x2="738" y2="334"/>
+            <line x1="904" y1="150" x2="904" y2="334"/>
           </g>
+          <rect x="172" y="334" width="800" height="58" rx="10" fill="none" stroke="var(--ember)" stroke-width="1.5" stroke-dasharray="2 3"/>
+          <text x="572" y="360" text-anchor="middle" style="font-size:13.5px;font-weight:700;fill:var(--ember)">Trust layer</text>
+          <text x="572" y="379" text-anchor="middle" style="font-size:11px;font-weight:500;fill:var(--ink-soft)">provenance · decision rights · confidence thresholds · human-in-the-loop · full audit</text>
         </svg>
         <figcaption>Figure 3 — The life of one intent. Nothing is forced into a form on the way in; structure is produced on the way out. The Trust layer is not a gate at the edge — it runs the length of the pipeline, so every action traces back to the intent and the reasoning that produced it.</figcaption>
       </figure>
@@ -829,6 +852,9 @@
     <h2 class="section-title">From molecule to medicine, end to end</h2>
     <p>The sections so far describe a mechanism. It helps to see the whole operating model at once — the path a pharmaceutical company takes from a molecule to a delivered medicine — and to set today's flow beside the one I am proposing. Today's is a <em>relay</em>: each function owns a system, and work is handed across boundaries where data is re-keyed, reconciled, and delayed. On Karpa the same functions write to one surface; agents interpret and act within policy; and people move from operating systems to owning decisions.</p>
 
+  </div>
+
+  <div class="wrap bleed">
     <div class="figpanel" style="margin:2rem 0">
       <figure>
         <p class="flow-cap">Today — a relay of records</p>
@@ -870,9 +896,14 @@
         <figcaption>Figure 4 — The same five functions, two operating models: today's relay of separate systems (top), and Karpa's single surface that every function writes to and all structure is projected from (bottom). On a phone, each half stacks top-to-bottom.</figcaption>
       </figure>
     </div>
+  </div>
 
+  <div class="wrap col">
     <h3 class="sub">Function by function</h3>
     <p>The same journey, stage by stage — what happens today and who does it, beside what happens on Karpa and who does it.</p>
+  </div>
+
+  <div class="wrap bleed">
     <div class="cmp-wrap">
       <table class="cmp">
         <thead>
@@ -912,7 +943,9 @@
         </tbody>
       </table>
     </div>
+  </div>
 
+  <div class="wrap col">
     <p>Read the right-hand column as a career map as much as a process one. The roles that exist to <em>feed and reconcile the record</em> — sales ops re-keying orders, planners firefighting in spreadsheets, stewards cleaning master data, reviewers chasing documents — thin out. The roles that grow are the ones software cannot hold: deciding under ambiguity, owning an outcome, authoring the policy the agents run under, and handling the exception no rule anticipated. Fewer people feeding the machine; more people pointing it.</p>
   </div>
 </section>
@@ -1047,8 +1080,8 @@
   <div class="wrap col">
     <p class="marker">Coda</p>
     <p class="pull" style="margin-bottom:1.4rem">For fifty years we shaped the business to fit the database. It doesn't need us to anymore.</p>
-    <p style="color:#AEB9C8;font-size:1.15rem;line-height:1.6">That is really the whole argument. The record stops being the master and becomes a view. People say what they mean, in the form that suits them, and the system does the translating it once forced on them. I don't think of this as a prediction so much as a direction — one I suspect we will back into gradually, the way we backed into the cloud, long before anyone agreed it was happening.</p>
-    <p style="color:#AEB9C8;font-size:1.15rem;line-height:1.6">I don't know for certain that I'm right. I wanted to write it down while it still sounds strange.</p>
+    <p style="color:#AEB9C8;font-size:1.15rem;line-height:1.6">That is really the whole argument. The record stops being the master and becomes a view. People say what they mean, in the form that suits them, and the system does the translating it once forced on them. I don't think of this as a prediction so much as a direction — one I expect we will back into gradually, the way we backed into the cloud, long before anyone agreed it was happening.</p>
+    <p style="color:#AEB9C8;font-size:1.15rem;line-height:1.6">I'm writing it down now, while it still sounds strange — because I don't believe it will for long. The constraints that made the old architecture necessary are already gone; the rest is a matter of time, and of who chooses to build it first.</p>
     <p class="pull-cite" style="margin-top:1.8rem">Srinivas Chilukuri · November 2026</p>
     <p class="small" style="color:#6F7A8A;margin-top:.9rem">(The title in my head was "Intent is all you need." I thought better of the bravado.)</p>
   </div>
