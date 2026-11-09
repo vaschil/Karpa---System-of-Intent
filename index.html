@@ -407,54 +407,116 @@
 
   <div class="wrap hero-fig">
     <figure>
-      <svg class="diagram" viewBox="0 0 1000 300" role="img" preserveAspectRatio="xMidYMid meet"
-           aria-label="Six separate functional threads — customer, sales, plan, make, deliver, finance — enter from the left in grey, pass through a vertical interpretation seam, and emerge woven together in a single accent-coloured surface on the right.">
-        <!-- left labels -->
-        <g class="lbl" text-anchor="start" font-size="12.5">
-          <text x="8" y="48">customer</text>
-          <text x="8" y="92">sales</text>
-          <text x="8" y="136">plan</text>
-          <text x="8" y="180">make</text>
-          <text x="8" y="224">deliver</text>
-          <text x="8" y="268">finance</text>
+      <svg class="diagram" viewBox="0 158 1600 698" role="img" preserveAspectRatio="xMidYMid meet" style="max-width:920px;margin:0 auto"
+           aria-label="Six supply-chain roles — planner, supplier, plant floor, logistics, finance, customer — write plain-language asks into one shared canvas called Karpa, which renders structured documents — purchase order, production plan, GL entry, customer ETA — on demand, over a trust layer.">
+        <defs>
+          <pattern id="weaveHero" width="26" height="26" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="7" x2="26" y2="7" stroke="var(--accent)" stroke-width="2" opacity="0.09"/>
+            <line x1="0" y1="19" x2="26" y2="19" stroke="var(--accent)" stroke-width="2" opacity="0.09"/>
+            <line x1="7" y1="0" x2="7" y2="26" stroke="var(--accent)" stroke-width="2" opacity="0.09"/>
+            <line x1="19" y1="0" x2="19" y2="26" stroke="var(--accent)" stroke-width="2" opacity="0.09"/>
+          </pattern>
+          <marker id="ahHero" markerWidth="11" markerHeight="11" refX="8" refY="5" orient="auto"><path d="M0,0 L9,5 L0,10 z" fill="var(--faint)"/></marker>
+        </defs>
+
+        <!-- column headers -->
+        <text x="80" y="184" style="font-family:var(--font-mono);font-size:15px;letter-spacing:3px;fill:var(--faint);font-weight:500">WHO WRITES</text>
+        <text x="1530" y="184" text-anchor="end" style="font-family:var(--font-mono);font-size:15px;letter-spacing:3px;fill:var(--faint);font-weight:500">RENDERS ON DEMAND</text>
+
+        <!-- authors -->
+        <g>
+          <rect x="70" y="196" width="360" height="72" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="92" y="226" style="font-family:var(--font-display);font-weight:700;font-size:22px;fill:var(--ink)">Planner</text>
+          <text x="92" y="252" style="font-family:var(--font-body);font-style:italic;font-size:20px;fill:var(--ink-soft)">“Need 2,000 units by Friday.”</text>
         </g>
-        <!-- grey siloed threads: left -> seam (x=470) -->
-        <g fill="none" stroke="var(--fossil)" stroke-width="2.4" opacity=".9">
-          <path class="thread" style="--len:430" stroke-dasharray="430" d="M110,44 C250,44 330,44 470,44"/>
-          <path class="thread" style="--len:430" stroke-dasharray="430" d="M110,88 C250,88 330,88 470,88"/>
-          <path class="thread" style="--len:430" stroke-dasharray="430" d="M110,132 C250,132 330,132 470,132"/>
-          <path class="thread" style="--len:430" stroke-dasharray="430" d="M110,176 C250,176 330,176 470,176"/>
-          <path class="thread" style="--len:430" stroke-dasharray="430" d="M110,220 C250,220 330,220 470,220"/>
-          <path class="thread" style="--len:430" stroke-dasharray="430" d="M110,264 C250,264 330,264 470,264"/>
+        <g>
+          <rect x="70" y="282" width="360" height="72" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="92" y="312" style="font-family:var(--font-display);font-weight:700;font-size:22px;fill:var(--ink)">Supplier</text>
+          <text x="92" y="338" style="font-family:var(--font-body);font-style:italic;font-size:20px;fill:var(--ink-soft)">“Can flex capacity 15% next week.”</text>
         </g>
-        <!-- interpretation seam -->
-        <line x1="470" y1="24" x2="470" y2="284" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="3 4"/>
-        <g class="lbl" text-anchor="middle">
-          <text x="470" y="16" font-size="11" fill="var(--accent-ink)" letter-spacing="1">INTERPRETATION</text>
+        <g>
+          <rect x="70" y="368" width="360" height="72" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="92" y="398" style="font-family:var(--font-display);font-weight:700;font-size:22px;fill:var(--ink)">Plant floor</text>
+          <text x="92" y="424" style="font-family:var(--font-body);font-style:italic;font-size:20px;fill:var(--ink-soft)">“Line 3 down about six hours.”</text>
         </g>
-        <!-- accent woven threads: seam -> converge into band on right -->
-        <g fill="none" stroke="var(--accent)" stroke-width="2.4">
-          <path class="thread" style="--len:520" stroke-dasharray="520" d="M470,44  C620,44  690,120 840,130"/>
-          <path class="thread" style="--len:520" stroke-dasharray="520" d="M470,88  C620,88  690,176 840,150"/>
-          <path class="thread" style="--len:520" stroke-dasharray="520" d="M470,132 C620,132 690,120 840,145"/>
-          <path class="thread" style="--len:520" stroke-dasharray="520" d="M470,176 C620,176 690,120 840,160"/>
-          <path class="thread" style="--len:520" stroke-dasharray="520" d="M470,220 C620,220 690,176 840,165"/>
-          <path class="thread" style="--len:520" stroke-dasharray="520" d="M470,264 C620,264 690,176 840,180"/>
+        <g>
+          <rect x="70" y="454" width="360" height="72" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="92" y="484" style="font-family:var(--font-display);font-weight:700;font-size:22px;fill:var(--ink)">Logistics</text>
+          <text x="92" y="510" style="font-family:var(--font-body);font-style:italic;font-size:20px;fill:var(--ink-soft)">“Port delay — add three days.”</text>
         </g>
-        <!-- seam nodes -->
-        <g fill="var(--accent)">
-          <circle cx="470" cy="44" r="3.2"/><circle cx="470" cy="88" r="3.2"/>
-          <circle cx="470" cy="132" r="3.2"/><circle cx="470" cy="176" r="3.2"/>
-          <circle cx="470" cy="220" r="3.2"/><circle cx="470" cy="264" r="3.2"/>
+        <g>
+          <rect x="70" y="540" width="360" height="72" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="92" y="570" style="font-family:var(--font-display);font-weight:700;font-size:22px;fill:var(--ink)">Finance</text>
+          <text x="92" y="596" style="font-family:var(--font-body);font-style:italic;font-size:20px;fill:var(--ink-soft)">“Keep spend under $5M.”</text>
         </g>
-        <!-- woven surface on right -->
-        <rect x="838" y="118" width="150" height="74" rx="8" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.4"/>
-        <g text-anchor="middle">
-          <text x="913" y="150" class="box-t" fill="var(--accent-ink)" font-size="13" font-weight="700">Karpa</text>
-          <text x="913" y="168" class="box-s" font-size="10">one surface</text>
+        <g>
+          <rect x="70" y="626" width="360" height="72" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="92" y="656" style="font-family:var(--font-display);font-weight:700;font-size:22px;fill:var(--ink)">Customer</text>
+          <text x="92" y="682" style="font-family:var(--font-body);font-style:italic;font-size:20px;fill:var(--ink-soft)">“Pull order 8821 forward.”</text>
         </g>
+
+        <!-- writing arrows -->
+        <path d="M434,232 C524,232 520,300 596,300" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M434,318 C524,318 520,365 596,365" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M434,404 C524,404 520,425 596,425" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M434,490 C524,490 520,490 596,490" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M434,576 C524,576 520,555 596,555" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M434,662 C524,662 520,610 596,610" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+
+        <!-- the canvas -->
+        <rect x="600" y="250" width="400" height="404" rx="26" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="2.5"/>
+        <rect x="600" y="250" width="400" height="404" rx="26" fill="url(#weaveHero)"/>
+        <g transform="translate(778,322)">
+          <rect width="44" height="44" rx="10" fill="var(--accent)"/>
+          <g stroke="#fff" stroke-width="3.4" stroke-linecap="round">
+            <line x1="14" y1="9" x2="14" y2="35" opacity=".5"/>
+            <line x1="22" y1="9" x2="22" y2="35" opacity=".5"/>
+            <line x1="30" y1="9" x2="30" y2="35" opacity=".5"/>
+            <line x1="9" y1="14" x2="35" y2="14" opacity=".95"/>
+            <line x1="9" y1="22" x2="35" y2="22" opacity=".95"/>
+            <line x1="9" y1="30" x2="35" y2="30" opacity=".95"/>
+          </g>
+        </g>
+        <text x="800" y="414" text-anchor="middle" style="font-family:var(--font-display);font-weight:800;font-size:28px;fill:var(--accent-ink)">Karpa</text>
+        <text x="800" y="441" text-anchor="middle" style="font-family:var(--font-mono);font-size:15px;letter-spacing:2px;fill:var(--accent);font-weight:500">THE INTENT CANVAS</text>
+        <line x1="662" y1="464" x2="938" y2="464" stroke="var(--line-strong)" stroke-width="1.5"/>
+        <text x="800" y="508" text-anchor="middle" style="font-family:var(--font-body);font-size:19px;fill:var(--ink)">interprets what people mean</text>
+        <text x="800" y="544" text-anchor="middle" style="font-family:var(--font-body);font-size:19px;fill:var(--ink)">holds intent · constraints · commitments</text>
+        <text x="800" y="580" text-anchor="middle" style="font-family:var(--font-body);font-size:19px;fill:var(--ink)">renders structure on request</text>
+
+        <!-- rendering arrows -->
+        <path d="M1002,320 C1092,320 1080,287 1166,287" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M1002,410 C1092,410 1080,397 1166,397" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M1002,490 C1092,490 1080,507 1166,507" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+        <path d="M1002,580 C1092,580 1080,617 1166,617" fill="none" stroke="var(--faint)" stroke-width="2" marker-end="url(#ahHero)"/>
+
+        <!-- outputs -->
+        <g>
+          <rect x="1170" y="244" width="360" height="86" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <rect x="1170" y="244" width="6" height="86" rx="3" fill="var(--accent)"/>
+          <text x="1202" y="296" style="font-family:var(--font-display);font-weight:600;font-size:21px;fill:var(--ink)">Purchase order</text>
+        </g>
+        <g>
+          <rect x="1170" y="354" width="360" height="86" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <rect x="1170" y="354" width="6" height="86" rx="3" fill="var(--accent)"/>
+          <text x="1202" y="406" style="font-family:var(--font-display);font-weight:600;font-size:21px;fill:var(--ink)">Revised production plan</text>
+        </g>
+        <g>
+          <rect x="1170" y="464" width="360" height="86" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <rect x="1170" y="464" width="6" height="86" rx="3" fill="var(--accent)"/>
+          <text x="1202" y="516" style="font-family:var(--font-display);font-weight:600;font-size:21px;fill:var(--ink)">GL entry &amp; invoice</text>
+        </g>
+        <g>
+          <rect x="1170" y="574" width="360" height="86" rx="11" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <rect x="1170" y="574" width="6" height="86" rx="3" fill="var(--accent)"/>
+          <text x="1202" y="626" style="font-family:var(--font-display);font-weight:600;font-size:21px;fill:var(--ink)">Customer ETA</text>
+        </g>
+
+        <!-- trust layer -->
+        <rect x="70" y="764" width="1460" height="64" rx="12" fill="var(--accent)"/>
+        <text x="800" y="803" text-anchor="middle" style="font-family:var(--font-mono);font-size:19px;font-weight:600;letter-spacing:3px;fill:#fff">TRUST LAYER&#160;&#160;·&#160;&#160;policy&#160;·&#160;audit&#160;·&#160;permissions&#160;·&#160;lineage</text>
       </svg>
-      <figcaption>Figure 1 — Six functions that today live in six modules enter as separate threads. An interpretation layer reads each in its own native form; what emerges is not six records to reconcile but one shared surface of intent.</figcaption>
+      <figcaption>Figure 1 — Every participant writes to one surface in whatever form is natural — a line, a message, a number. Karpa interprets the intent, holds the constraints and commitments, and renders the document each role needs — the PO, the plan, the ledger entry — on demand. It all rests on a trust layer: every action traces back to the intent that produced it.</figcaption>
     </figure>
   </div>
 </header>
